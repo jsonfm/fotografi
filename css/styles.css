@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    transition: 0.25s;
+}
+
+:root{
+    --color-primary: rgb(3, 60, 84);
+
+    --card-radius: 5rem;
+}
+/* Globals */
+
+.container, .navbar {
+    width: 90%;
+    margin: 0 auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+html, body {
+    background: var(--color-primary);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* header */
+
+header{ 
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: var(--color-primary);
+}
+
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4.5rem;
+}
+
+header .navbar .logo img {
+    width: 7rem;
+}
+
+header .toggle {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+header .navigation {
+    transform: scale(0);
+    background: var(--color-primary);
+    top: 5rem;
+    left: 30%;
+    padding: 1rem;
+    transition: none;
+}
+
+header .navigation.active {
+    transform: scale(1);
+    position: relative;
+    transition: none;
+}
+
+/* Main */
+
+main {
+    min-height: 100vh;
+    padding: 4rem 0;
+    overflow-x: hidden;
+}
+
+/* HOME */
+.home {
+    padding: 3rem 0;
+}
+
+.home .banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.home .banner .image-container {
+    width: 80%;
+    height: 20rem;
+    margin-bottom: 1rem;
+}
+
+.home .banner .image-container img {
+    width: 100%;
+    height: 100%;
+    
+    object-fit: cover;
+    object-position: center;
+    border-top-left-radius: var(--card-radius);
+    border-top-right-radius: var(--card-radius);
+}
+
+
+@media (min-width: 768px) {
+    header .navigation {
+        transform: scale(1);
+        top: 0;
+        left: 0;
+    }
+
+    header .navigation .nav-item {
+        display: inline-block;
+        margin-left: 1rem;
+    }
+    header .toggle {
+        transform: scale(0);
+    }
+    .home .banner {
+        flex-direction: row;
+    }
+}
