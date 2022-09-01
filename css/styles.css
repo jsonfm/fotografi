@@ -7,16 +7,39 @@
 }
 
 :root{
-    --color-primary: rgb(3, 60, 84);
+    /* GREEN THEME */
+    --color-primary: #ff7b02;
+    --color-primary-variant: #e5a55d;
+    --color-bg-1: #000e17;
+    --color-bg-2: #001e2d;
+    --color-bg-3: #012734;
+    --color-bg-4: #003347;
+    --color-light: #85a2b2;
+    --color-white: hsl(0, 0%, 90%);
 
-    --card-radius: 5rem;
+    /* PURPLE THEME */
+    /* --color-primary: #ff7b02;
+    --color-primary-variant: #e5a55d;
+    --color-bg-1: #000e17;
+    --color-bg-2: #001e2d;
+    --color-bg-3: #012734;
+    --color-bg-4: #003347;
+    --color-light: #85a2b2;
+    --color-white: hsl(0, 0%, 90%); */
+
+    --container-width-lg: 88%;
+    --container-width-md: 92%;
+
+    --card-radius: 9rem;
 }
 /* Globals */
 
 .container, .navbar {
-    width: 90%;
+    width: var(--container-width-md);
     margin: 0 auto;
+    max-width: 2160px;
 }
+
 
 ul {
     list-style: none;
@@ -24,13 +47,27 @@ ul {
 
 a {
     text-decoration: none;
-    color: white;
+    color: var(--color-light);
+}
+
+a:hover {
+    color: var(--color-primary);
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
 }
 
 html, body {
-    background: var(--color-primary);
-    color: white;
+    background: var(--color-bg-3);
+    color: var(--color-light);
     font-family: 'Montserrat', sans-serif;
+}
+
+section {
+    padding: 2rem 0;
 }
 
 /* header */
@@ -40,14 +77,14 @@ header{
     position: fixed;
     top: 0;
     left: 0;
-    background: var(--color-primary);
+    background: var(--color-bg-3);
 }
 
 header .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 4.5rem;
+    height: 5rem;
 }
 
 header .navbar .logo img {
@@ -63,10 +100,9 @@ header .toggle {
 
 header .navigation {
     transform: scale(0);
-    background: var(--color-primary);
-    top: 5rem;
-    left: 30%;
-    padding: 1rem;
+    background: var(--color-bg-3);
+    top: 12rem;
+    left: 15%;
     transition: none;
 }
 
@@ -74,6 +110,27 @@ header .navigation.active {
     transform: scale(1);
     position: relative;
     transition: none;
+}
+
+header .navigation .nav-item {
+    height: 5rem;
+    width: 10rem;
+    box-shadow: -3rem 3rem 3rem rgba(0, 0, 0, 0.3);
+    background-color: var(--color-bg-4)
+}
+
+header .navigation .nav-item a {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* padding: 1rem 5rem 1rem 3rem; */
+    border-top: 1px solid var(--color-bg-2);
+}
+
+header .social {
+    display: none;
 }
 
 /* Main */
@@ -86,7 +143,7 @@ main {
 
 /* HOME */
 .home {
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
 .home .banner {
@@ -97,8 +154,9 @@ main {
 
 .home .banner .image-container {
     width: 80%;
-    height: 20rem;
+    height: 15rem;
     margin-bottom: 1rem;
+    object-position: 20%;
 }
 
 .home .banner .image-container img {
@@ -106,23 +164,69 @@ main {
     height: 100%;
     
     object-fit: cover;
-    object-position: center;
     border-top-left-radius: var(--card-radius);
     border-top-right-radius: var(--card-radius);
 }
 
+/* ABOUT */
+.image-container {
+    width: 100%;
+    height: 26rem;
+}
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* GALLERY */
 
 @media (min-width: 768px) {
+
+    .container, .navbar {
+        width: var(--container-width-lg);
+    }
+
+    .scrolled {
+        background: var(--color-bg-2);
+        border-bottom: 0.2rem solid var(--color-bg-3);
+        box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.3);
+    }
+    
+
     header .navigation {
         transform: scale(1);
         top: 0;
         left: 0;
     }
 
-    header .navigation .nav-item {
-        display: inline-block;
-        margin-left: 1rem;
+    header .social {
+        display: block;
+        /* margin-left: auto; */
     }
+
+    header .navigation {
+        margin: 0 auto;
+        background: transparent;
+    }
+
+    header .social .social-item,
+    header .navigation .nav-item
+    {
+        display: inline-block;
+        background: transparent;
+    }
+
+    header .navigation .nav-item {
+        width: 7rem;
+        box-shadow: none;
+    }
+
+    header .social .social-item {
+        margin-left: .5rem;
+    }
+
+
     header .toggle {
         transform: scale(0);
     }
